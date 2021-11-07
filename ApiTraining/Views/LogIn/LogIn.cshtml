@@ -1,0 +1,36 @@
+﻿@model ApiTraining.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Log In";
+
+}
+
+<form class="form-signin">
+    @if (Model.Message != String.Empty && Model.Message!=null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>@Model.Message</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+    <img class="mb-4" src="~/img/bepza-logo.png" alt="" width="72" height="72" />
+    <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>
+    <label for="inputEmployeeID" class="sr-only">Employee ID</label>
+    <input type="text" asp-for="user.EmployeeId" id="inputEmployeeID" class="form-control mb-1" placeholder="Employee ID" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" asp-for="user.Password" id="inputPassword" class="form-control" placeholder="Password" required>
+    @*<div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>*@
+    <button class="btn btn-lg btn-warning btn-block" type="submit" asp-controller="LogIn" asp-action="CreateToken">Log In</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2021-BEPZA MIS </p>
+</form>
+@section Scripts
+   {
+       
+
+       
+   }
